@@ -9,6 +9,7 @@ const (
 	OperatorIsNull      Operator = "IS NULL"
 	OperatorLessThan    Operator = "LESS THAN"
 	OperatorGreaterThan Operator = "GREATER THAN"
+	OperatorBetween     Operator = "BETWEEN"
 )
 
 type Predicate struct {
