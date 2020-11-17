@@ -20,6 +20,6 @@ func (ob *OrderBy) GetField() string {
 	return ob.field
 }
 
-func (ob *OrderBy) GetOrder() string {
-	return string(ob.order)
+func (ob *OrderBy) GetOrder() Order {
+	return ob.order
 }
