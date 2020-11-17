@@ -23,3 +23,7 @@ func (ob *OrderBy) GetField() string {
 func (ob *OrderBy) GetOrder() Order {
 	return ob.order
 }
+
+func (ob *OrderBy) IsOrder(order Order) bool {
+	return order == ob.order
+}
