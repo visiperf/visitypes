@@ -34,6 +34,6 @@ func (p *Predicate) GetValues() []interface{} {
 	return p.values
 }
 
-func (p *Predicate) IsOperator(operator string) bool {
-	return operator == string(p.operator)
+func (p *Predicate) IsOperator(operator Operator) bool {
+	return operator == p.operator
 }
