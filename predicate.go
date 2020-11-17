@@ -26,6 +26,10 @@ func (p *Predicate) GetField() string {
 	return p.field
 }
 
+func (p *Predicate) GetOperator() Operator {
+	return p.operator
+}
+
 func (p *Predicate) GetValues() []interface{} {
 	return p.values
 }
