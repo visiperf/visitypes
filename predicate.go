@@ -1,15 +1,15 @@
 package visitypes
 
-type Operator string
+type Operator int
 
 const (
-	OperatorIn          Operator = "IN"
-	OperatorEqual       Operator = "EQUALS"
-	OperatorLike        Operator = "LIKE"
-	OperatorIsNull      Operator = "IS NULL"
-	OperatorLessThan    Operator = "LESS THAN"
-	OperatorGreaterThan Operator = "GREATER THAN"
-	OperatorBetween     Operator = "BETWEEN"
+	OperatorIn Operator = iota
+	OperatorEqual
+	OperatorLike
+	OperatorIsNull
+	OperatorLessThan
+	OperatorGreaterThan
+	OperatorBetween
 )
 
 type Predicate struct {
@@ -19,21 +19,17 @@ type Predicate struct {
 }
 
 func NewPredicate(field string, operator Operator, values []interface{}) *Predicate {
-	return &Predicate{field: field, operator: operator, values: values}
+	return &Predicate{field, operator, values}
 }
 
-func (p *Predicate) GetField() string {
+func (p Predicate) Field() string {
 	return p.field
 }
 
-func (p *Predicate) GetOperator() Operator {
+func (p Predicate) Operator() Operator {
 	return p.operator
 }
 
-func (p *Predicate) GetValues() []interface{} {
+func (p Predicate) Values() []interface{} {
 	return p.values
-}
-
-func (p *Predicate) IsOperator(operator Operator) bool {
-	return operator == p.operator
 }
