@@ -6,13 +6,13 @@ type Pagination struct {
 }
 
 func NewPagination(start, limit int) *Pagination {
-	return &Pagination{start: start, limit: limit}
+	return &Pagination{start, limit}
 }
 
-func (p *Pagination) GetStart() int {
+func (p Pagination) Start() int {
 	return p.start
 }
 
-func (p *Pagination) GetLimit() int {
+func (p Pagination) Limit() int {
 	return p.limit
 }
