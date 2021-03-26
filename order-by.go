@@ -1,10 +1,10 @@
 package visitypes
 
-type Order string
+type Order int
 
 const (
-	OrderAsc  = "ASC"
-	OrderDesc = "DESC"
+	OrderAsc Order = iota
+	OrderDesc
 )
 
 type OrderBy struct {
@@ -13,17 +13,13 @@ type OrderBy struct {
 }
 
 func NewOrderBy(field string, order Order) *OrderBy {
-	return &OrderBy{field: field, order: order}
+	return &OrderBy{field, order}
 }
 
-func (ob *OrderBy) GetField() string {
+func (ob OrderBy) Field() string {
 	return ob.field
 }
 
-func (ob *OrderBy) GetOrder() Order {
+func (ob OrderBy) Order() Order {
 	return ob.order
-}
-
-func (ob *OrderBy) IsOrder(order Order) bool {
-	return order == ob.order
 }
